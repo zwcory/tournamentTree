@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
+  width:100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .logo {
@@ -39,4 +39,105 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+.item{
+  text-align: left; !important;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+
+
+/* From Uiverse.io by Juanes200122 */
+.container {
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: rgb(43, 43, 43);
+  /*background-image: radial-gradient(rgba(12, 12, 12, 0.05) 2px, transparent 0);*/
+  /*background-size: 30px 30px;*/
+  /*background-position: -0px -0px;*/
+  padding: 0px !important;
+}
+
+
+/* From Uiverse.io by doniaskima */
+.inputContainer {
+  position: relative;
+}
+
+.customInput {
+  height:100%;
+  width: 60%;
+  background-color: transparent;
+  border: none;
+  box-shadow: inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.65);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+
+.myCard{
+  background-color: #1a1a1a;
+  min-height: 70vh;
+  border-width: 0px;
+  border-radius: 0.75em;
+  margin: 1em 2em 2em;
+  max-height: fit-content;
+  padding: 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.myBtn{
+  border-radius: 8px;
+  padding-block: inherit;
+  background-color: #2b2b2b;
+}
+
+.redBtn{
+  border-width: 0px;
+  color: red;
+}
+
+.greenBtn {
+  border-width: 0px;
+  color: green;
+}
+
+.greyBtn{
+  border-width: 0px;
+  color: rgb(101, 120, 140);
+}
+#add{
+  margin-left: 2px;
+}
+
+.greenBtn:hover{
+  box-shadow: 0px 0px 3px 1px rgba(0, 128, 0, 0.8);
+}
+
+.redBtn:hover{
+  box-shadow: 0px 0px 3px 1px rgba(255, 0, 0, 0.8);
+}
+
+
+.greyBtn:hover{
+  box-shadow: 0px 0px 3px 1px rgba(101, 120, 140, 0.65);
+}
+
+
+#header{
+  text-align: left;
+}
+
+#title{
+  text-align: left;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  color: #d6d6d6;
+}
+
+.player-column {
+
 }

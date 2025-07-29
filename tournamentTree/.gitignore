@@ -61,3 +61,5 @@ pnpm-debug.log*
 
 # Testing coverage
 coverage/
+$ git add .
+warning: in the working copy of 'tournamentTree/.gitignore', LF will be replaced by CRLF the next time Git touches it
