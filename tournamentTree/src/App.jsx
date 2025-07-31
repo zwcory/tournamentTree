@@ -2,14 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import PlayerInput from "./assets/components/randomizer/playerInput.jsx";
+import Page from "./assets/components/randomizer/page.jsx";
 
 function App() {
 
 
   return (
     <>
-        <PlayerInput/>
+        <Page/>
     </>
 
   )

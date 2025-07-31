@@ -1,3 +1,5 @@
+import PlayerInput from "./playerInput.jsx";
+
 const Page = () => {
     //TODO
     // make player list responsive
@@ -9,7 +11,7 @@ const Page = () => {
 
     return (
         <div>
-
+            <PlayerInput/>
         </div>
     )
 

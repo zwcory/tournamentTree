@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Randomizer from "./randomizer.jsx";
 
 
 const PlayerInput = () => {
     const [list,setList] = useState(
         []
     );
-    const [blankList,setBlankList] = useState(Boolean);
+    const [blankList,setBlankList] = useState(false);
     const [inputText, setInputText] = useState(''); // State for input text
+    const [isFull, setIsFull] = useState(false);
+
 
 
     useEffect(() => {
+        (async () => {
+            await getList();
+        })();
     }, []);
 
     useEffect(() => {
-        getList().then();
-        console.log('is blank list? ' , blankList);
-        console.log('list is ' , list);
-    }, []);
+        console.log('Updated list:', list);
+        console.log('Updated blankList:', blankList);
+        if (list.length===32){
+            setIsFull(true)
+            console.log("Set is now full")
+        } else {
+            setIsFull(false)
+        }
+
+    }, [list, blankList]);
 
     const getList = async () => {
         const fetchedList = JSON.parse(localStorage.getItem('List')) || [];
@@ -84,21 +96,28 @@ const PlayerInput = () => {
                                     {/* Only add the input to the last column */}
                                     {colIndex === chunkedList.length - 1 && (
                                         <li className={'item align-content-lg-start'}>
-                                            <div className={'input'}>
-                                                <input
-                                                    required=""
-                                                    className={'customInput'}
-                                                    type={'text'}
-                                                    placeholder={'Enter Text'}
-                                                    value={inputText}
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <button type="submit" className={'myBtn greenBtn'}>
-                                                ADD
-                                            </button>
+                                            {!isFull && (
+                                                <div className={'input'}>
+                                                    <input
+                                                        required=""
+                                                        className={'customInput'}
+                                                        type={'text'}
+                                                        placeholder={'Enter Text'}
+                                                        value={inputText}
+                                                        onChange={handleChange}
+                                                    />
+                                                </div>
+                                            )}
+
+                                            {!isFull && (
+                                                <button type="submit" className={'myBtn greenBtn'}>
+                                                    ADD
+                                                </button>
+                                            )}
+
                                         </li>
                                     )}
+
                                 </ol>
                             ))}
 
@@ -106,6 +125,7 @@ const PlayerInput = () => {
                             {chunkedList.length === 0 && (
                                 <ol className={'player-column'}>
                                     <li className={'item align-content-lg-start'}>
+
                                         <div className={'input'}>
                                             <input
                                                 required=""
@@ -124,38 +144,9 @@ const PlayerInput = () => {
                             )}
                         </div>
                     </form>
-
-                    {/*sdsds*/}
-
-
-                    {/*<form onSubmit={handleSubmit}>*/}
-                    {/*    <ol>*/}
-                    {/*        {list.map((item, index) => (*/}
-                    {/*            <li key={index}*/}
-                    {/*                className={`item align-content-lg-start`}*/}
-                    {/*            >{item}</li>*/}
-                    {/*        ))}*/}
-
-                    {/*        <li className={`item align-content-lg-start`}>*/}
-                    {/*            <div className={'input'}>*/}
-                    {/*                <input required=""*/}
-                    {/*                       className="customInput"*/}
-                    {/*                       type="text"*/}
-                    {/*                       placeholder={'Enter Text'}*/}
-                    {/*                       value={inputText}*/}
-                    {/*                       onChange={handleChange}/>*/}
-                    {/*            </div>*/}
-                    {/*            <button*/}
-                    {/*                type="submit"*/}
-                    {/*                className={'myBtn greenBtn'}*/}
-                    {/*            >*/}
-                    {/*                ADD*/}
-                    {/*            </button>*/}
-                    {/*        </li>*/}
-                    {/*    </ol>*/}
-                    {/*</form>*/}
-
-                    {/*    sdsdsd*/}
+                    {isFull && (
+                        <Randomizer players={list}/>
+                    )}
                 </div>
             </div>
         </div>
