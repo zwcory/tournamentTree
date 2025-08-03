@@ -78,13 +78,13 @@ const PlayerInput = () => {
                 Tournament Players
             </h1>
             <div className={'d-flex justify-content-center'}>
-                <div className={'myCard d-flex align-self-center flex-column'}>
+                <div className={'myCard d-flex align-self-center flex-column '}>
                     <div>
-                        <h3 id={'header'}>Enter your players</h3>
+                        <h3 id={'header'} className={"center-text"}>Enter your players</h3>
                     </div>
 
                     <form onSubmit={handleSubmit}>
-                        <div className={'d-flex gap-5'}>
+                        <div className={'d-flex gap-5 justify-content-center'}>
                             {chunkedList.map((group, colIndex) => (
                                 <ol key={colIndex} className={'player-column'}  start={colIndex * 16 + 1}>
                                     {group.map((item, index) => (

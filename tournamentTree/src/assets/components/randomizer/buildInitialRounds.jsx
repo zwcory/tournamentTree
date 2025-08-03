@@ -12,20 +12,27 @@ const buildInitialRounds = (players) => {
             ]
         })
     }
-    console.log("len is " , len);
-    console.log("players are" , players);
+    const emptyRound = (count, title) => ({
+        title,
+        seeds: Array.from({ length: count }, (_, i) => ({
+            id: `${title.toLowerCase().replace(/\s/g, "-")}-match-${i + 1}`,
+            teams: [
+                { id: `empty-${i * 2 + 1}`, name: "" },
+                { id: `empty-${i * 2 + 2}`, name: "" }
+            ]
+        }))
+    });
 
-    const roundTitle = {
-        2: "Final",
-        4: "Semi Final",
-        8: "Quarter Final",
-        16: "Round of 16",
-        32: "Round of 32"
-    }[len] || `Round of ${len}`;
-
-    rounds.push({ title: roundTitle, seeds });
-    console.log("rounds", rounds);
-    return rounds;
+    return [
+        {
+            title: "Round of 32",
+            seeds
+        },
+        emptyRound(8, "Round of 16"),
+        emptyRound(4, "Quarterfinals"),
+        emptyRound(2, "Semifinals"),
+        emptyRound(1, "Final")
+    ];
 };
 
 export default buildInitialRounds;

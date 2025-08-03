@@ -8,11 +8,10 @@ const Randomizer = ({players}) => {
 
     //TODO
     // make player list responsive
-    // install brackets
-    // generate the tree
-    // generate all branches
     // input 17 straight to new line
     // style
+    // add winner system
+    // download image of tree
 
 
     const randomize = (e) => {
@@ -37,12 +36,12 @@ const Randomizer = ({players}) => {
     return (
         <div>
             <form onSubmit={randomize}>
-                <button type="submit" className={'myBtn greenBtn'}>
+                <button type="submit" className={'myBtn greenBtn mb-3'}>
                     Generate Bracket
                 </button>
             </form>
             { isRandomized && (
-                <RandomizedBracket players={randomList}></RandomizedBracket>
+                <RandomizedBracket className={"justify-content-center"} players={randomList}></RandomizedBracket>
             )}
         </div>
     )
