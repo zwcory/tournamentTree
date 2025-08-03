@@ -1,4 +1,5 @@
 import {useState} from "react";
+import RandomizedBracket from "./RandomizedBracket.jsx";
 
 const Randomizer = ({players}) => {
 
@@ -26,22 +27,12 @@ const Randomizer = ({players}) => {
             x  = Math.floor(Math.random() * holdLength);
             player = hold[x];
 
-
             tempRandom.push(player);
-
             hold.splice(x, 1);
-
-            console.log(`Iteration ${i}: Chose "${player}" at index ${x}`);
-            console.log("Remaining:", hold);
-            console.log("Temp random so far:", tempRandom);
-
-
         }
         setRandomList(tempRandom);
         setIsRandomized(true);
     }
-
-
 
     return (
         <div>
@@ -51,15 +42,8 @@ const Randomizer = ({players}) => {
                 </button>
             </form>
             { isRandomized && (
-                <ol>
-                {randomList.map((item, index) => (
-                        <li key={index} className={'item align-content-lg-start'}>
-                            {item}
-                        </li>
-
-                     ))}
-                </ol>
-                )}
+                <RandomizedBracket players={randomList}></RandomizedBracket>
+            )}
         </div>
     )
 
